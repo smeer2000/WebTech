@@ -1,0 +1,80 @@
+<%- exposeLocalsToBrowser() %>
+    <div class="container">
+
+        <h1 class="mt-4">Bearbeiten Sie Bestellungen</h1>
+        Admin Oberfläche für die Bearbeitung der Bestellungen bei StudyLivery.
+
+        <div class="row mt-3" id="searching">
+            <div class="col-12 mt-3">
+                <form class="d-flex align-items-center" action="/searchAllOrdersEdit">
+                    <div class="col-6 d-flex">
+                        <select name="filteroption" class="form-select" aria-label="Default select example">
+                            <option value="1">Bestellnummer</option>
+                            <option value="2">Auftraggeber</option>
+                            <option value="3">Datum</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <input class="form-control" type="text" value="" length="20" name="q">
+                        <button class="btn-dark " type="submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+            <div class="container">
+
+                <table class="table table-bordered table-hover mt-4">
+                    <thead>
+                        <th>Auftraggeber</th>
+                        <th>Datum</th>
+                        <th>Bestellnummer</th>
+                        <th>Lieferzeitpunkt</th>
+                        <th>Status</th>
+                        <th>Aktion</th>
+
+                        
+                    </thead>
+                    <tbody>
+                        <% orders.forEach(function(order){ %>
+                            <tr class="table mb-4">
+                                <td>
+                                    <%= order.kundenname %>
+                                </td>
+                                <td>
+                                    <%= order.datum %>
+                                </td>
+                                <td>
+                                    <%= order.bestellnummer %>
+                                </td>
+                                <td>
+                                    <%= order.lieferzeitpunkt %>
+
+                                </td>
+                                <td>
+                                        <%= order.status %> 
+                                </td>
+                                <td>
+
+                                    <a href="/geteditlook/<%= order.id %>" class="btn btn-info warenkorb">Bestellungen bearbeiten <i class="bi bi-pencil"></i></a>
+                                    
+                                </td>
+
+                                <td>
+
+                                </td>
+                              
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+        
+
+
+            
+
+
+    </div>

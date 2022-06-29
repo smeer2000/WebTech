@@ -1,0 +1,101 @@
+<div id="kontakt" v-cloak>
+
+  <section class="mb-4 mt-4">
+    <div class="container">
+      <div class="row justify-content-center">
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="wrapper">
+            <div class="row no-gutters">
+              <div class="col-lg-6">
+                <div class="contact-wrap w-100 p-md-5 p-4">
+                  <h3>Kontaktieren Sie uns</h3>
+                  <p class="mb-4">Wir sind offen für sämtliche Anfragen. Gerne helfen wir Ihnen weiter.</p>
+
+                  <div class="row mb-4">
+                    <div class="col-md-6">
+                      <div class="dbox w-100 d-flex align-items-start">
+                        <div class="text">
+                          <p><span>Addresse:</span> <br>Alfred-Wachtel-Str. 8, 78462 Konstanz</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="dbox w-100 d-flex align-items-start">
+                        <div class="text">
+                          <p><span>Email:</span> <a href="mailto:kontakt@studylivery.com">kontakt@studylivery.com</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Ajax Form to Post Values into Controller -->
+                  <ajax-form class="row g-3" action="createMessage" :syncing.sync="syncing"
+                    :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules"
+                    :form-errors.sync="formErrors" @submitted="submittedForm()">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="name" class="form-label">Vor & Nachname</label>
+                          <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                            v-model.trim="formData.name" :class="[formErrors.name ? 'is-invalid' : '']">
+                          <div class="invalid-feedback" v-if="formErrors.name">Bitte vollständigen Namen angeben.</div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="eamil" class="form-label">E-Mail-Adresse</label>
+                          <input type="email" class="form-control" name="email" id="email"
+                            placeholder="Ihre E-Mail-Adresse" v-model.trim="formData.email"
+                            :class="[formErrors.email ? 'is-invalid' : '']">>
+                          <div class="invalid-feedback" v-if="formErrors.email">Bitte gültige E-Mail-Adresse eingeben.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="betreff" class="form-label">Betreff</label>
+                          <select id="betreff" class="form-select" name="betreff" v-model.trim="formData.betreff"
+                            :class="[formErrors.betreff ? 'is-invalid' : '']">
+                            <option>Fragen zu meinem Kotno</option>
+                            <option>Fragen zu einer Bestellung</option>
+                            <option>Reklamation / Beschwerde</option>
+                            <option>Sonstiges</option>
+                          </select>
+                          <div class="invalid-feedback" v-if="formErrors.betreff">Bitte geben Sie eine Betreff an.</div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="message" class="form-label">Nachricht</label>
+                          <textarea name="message" class="form-control" id="message" cols="30" rows="4"
+                            placeholder="Erläutern Sie Ihr Anliegen" v-model.trim="formData.message"
+                            :class="[formErrors.message ? 'is-invalid' : '']"></textarea>
+                          <div class="invalid-feedback" v-if="formErrors.message">Bitte Nachricht eingeben.</div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <ajax-button type="submit" :syncing="syncing" class="btn btn-dark">Nachricht absenden
+                        </ajax-button>
+                      </div>
+                    </div>
+                  </ajax-form>
+
+                  <!-- End of Ajax Form -->
+                </div>
+              </div>
+              
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

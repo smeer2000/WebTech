@@ -1,0 +1,76 @@
+
+<div class="container mt-3">
+
+    <h1>Ergebnissuche</h1>
+    
+    Ihre Suche ist zu folgenden Ergebnissen gekommen.
+    
+    
+    <% if(orders.length == 0) { %>
+    
+           <h1>Keine Bestellungen gefunden.</h1>
+    
+           <a href="/allOrders" type="button" class="btn btn-dark">Zurück zur Gesamtübersicht</a>
+         
+        
+    
+           <% } else { %>
+    
+            <div class="container mt-3">
+    
+            <h1>Ihre Suche hat folgende Ergebnisse</h1>
+    
+            <table class="table table-bordered table-hover mt-4">
+                
+    
+                <thead>
+                    <th>Auftraggeber</th>
+                    <th>Datum</th>
+                    <th>Bestellnummer</th>
+                    <th>Lieferzeitpunkt</th>
+                    <th>Status</th>
+                    <th>Aktionen</th>
+                    
+                </thead>
+                <tbody>
+    
+                    <% orders.forEach(function(order){ %>
+                        <tr class="table">
+                            <td>
+                                <%= order.kundenname %>
+                            </td>
+                            <td>
+                                <%= order.datum %>
+                            </td>
+                            <td>
+                                <%= order.bestellnummer %> €
+                            </td>
+                            <td>
+                                <%= order.lieferzeitpunkt %>
+                                
+                            </td>
+                            <td>
+                                <%= order.status %>
+                                
+                            </td>
+                            <td>
+                                <a href="/getlook/<%= order.id %>" class="btn btn-success warenkorb">Bestellung einsehen <i class="bi bi-eye"></i></a>
+                            </td>
+                             
+                        </td>  
+                        </tr>
+                                                
+    
+                            <% }); %>
+                </tbody>
+            </table>
+    
+           
+        </div>
+        <a href="/allOrders" type="button" class="btn btn-dark">Zurück zur Bearbeitungsübersicht</a>
+    
+        
+        
+        <% } %>
+    
+    </div>

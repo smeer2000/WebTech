@@ -1,0 +1,54 @@
+<%- exposeLocalsToBrowser() %>
+    <div class="container">
+
+        <h1 class="mt-4">Einzelansicht Anfrage</h1>
+        Bearbeiten von Anfragen
+
+
+            <div class="container">
+
+                <form action="/updateAnfrage/<%= anfrage.id %>" method="post">
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
+                <table class="table table-bordered table-hover mt-4">
+                    <thead>
+                        <th>Name</th>
+                        <th>E-Mail</th>
+                        <th>Betreff</th>
+                        <th>Nachricht</th>
+                        <th colspan="2">Status</th>
+                    </thead>
+                    <tbody>
+                     
+                            <tr class="table">
+                                <td>
+                                    <%= anfrage.name %>
+                                </td>
+                                <td>
+                                    <%= anfrage.betreff %>
+                                </td>
+                                <td>
+                                    <%= anfrage.email %>
+                                </td>
+                                <td>
+                                    <%= anfrage.message %> 
+                                </td>
+                                <td text-align="center">
+                                    <select id="anrede" class="form-select" name="status">
+                                        <option selected><%= anfrage.status %> (aktueller Status)</option>
+                                        <option>noch nicht bearbeitet </option>
+                                        <option>Anfrage bearbeitet & Kunden geantwortet &#9989; </option>
+                                        <option>Anfrage nicht mehr relevant & kann gelöscht werden 	&#10060;</option>
+                                      </select>
+
+                                </td>
+                                
+                            </tr>
+                         
+                    </tbody>
+                </table>
+                <a href="/anfragen" type="button" class="btn btn-dark mb-2">Zurück zur Anfragenübersicht</a>
+                <button type="submit" class="btn btn-dark mb-2">Änderungen speichern</button>
+                </form>
+            </div>
+    </div>

@@ -1,0 +1,129 @@
+<%- exposeLocalsToBrowser() %>
+    <div class="container">
+
+       
+
+        <div class="container">
+
+            <h1 class="mt-4">Statusbearbeitung Bestellnr.: <%= values[0].bestellnummer %> </h1>
+
+            <form action="/updateorder/<%= values[0].id %>" method="post">
+                <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+            
+            <table class="table table-bordered table-hover mt-4">
+                <thead>
+                    <th>Auftraggeber</th>
+                    <th>Datum</th>
+                    <th>Bestellnummer</th>
+                    <th>Gesamtpreis+LK</th> 
+                
+                    
+                </thead>
+                <tbody>
+                    <h4 class="mt-4">Bestellinformationen</h4>   
+                    <% values.forEach(function(value){ %>
+                    <tr class="table mb-4">
+                        <td>
+                            <%= value.kundenname %>
+                        </td>
+                        <td>
+                            <%= value.datum %>
+                        </td>
+                        <td>
+                            <%= value.bestellnummer %>
+                        </td>
+                        <td>
+                            <%= (value.gesamtpreis+10).toFixed(2) %> €
+                        
+                        </td>
+                       
+                        <% }); %>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered table-hover mt-4">
+                <thead>
+                    <th>Produkt</th>
+                    <th>Einzelpreis</th>
+                    <th>Anzahl</th>
+                    <th>Artikelpreis Gesamt</th>
+                    <th>Markt</th>
+               
+                </thead>
+                <tbody>
+                    <h4 class="mt-4">Produktüberischt</h4>   
+                    <% let backToJSON = JSON.parse(values[0].bestellungen); %>
+                    <% backToJSON.forEach(function(through){ %>
+
+                        
+                        <tr class="table mb-4">
+                            <td>
+                                <%= through.artikel %>
+                            </td>
+                            <td>
+                                <%= through.artikelpreis.toFixed(2) %> €
+                            </td>
+                            <td>
+                                <%= through.quantity %>
+                            </td>
+                            <td>
+                                <%= through.artikelpreisgesamt %> €
+                            </td>
+
+                            <td>
+                                <%= through.markt %> 
+                            </td>
+                            
+                            
+                    <% }); %>     
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+            <!--  -->
+
+            <table class="table table-bordered table-hover mt-4">
+                <thead>
+                    <th>Bestellstatus</th>
+                    <th>Lieferzeitpunkt</th>
+                    
+               
+                </thead>
+                <tbody>
+                    <h4 class="mt-4">Bestellstatus & Lieferinformation</h4>   
+                  
+
+                        
+                        <tr class="table mb-4">
+
+                            <td>
+                                <select id="anrede" class="form-select" name="status" v-model.trim="formData.anrede" :class="[formErrors.anrede ? 'is-invalid' : '']">
+                                  <option selected><%= values[0].status %> (aktueller Status)</option>
+                                  <option selected>Bestellung wird bearbeitet</option>
+                                  <option>Bestellung akzeptiert & Lebensmittel werden ausgeliefert &#9989; </option>
+                                  <option>Bestellung wurde abgelehnt 	&#10060;</option>
+                                </select>
+                      </td>
+                      <td>
+                        <input value="<%= values[0].lieferzeitpunkt %>" type="text" name="lieferzeitpunkt">
+                      </td>
+                            
+                            
+
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+
+            <!--  -->
+
+            <button href="/editOrders" class="btn btn-primary mb-3">Zurück zur Gesamtübersicht</button>
+            <button type="submit" class="btn btn-primary mb-3">Speichern</button>
+
+        </form>
+           
+        </div>
+    </div>

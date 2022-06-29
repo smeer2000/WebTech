@@ -1,0 +1,109 @@
+<%- exposeLocalsToBrowser() %>
+    <div class="container" id="warenkorb">
+
+        <h2 class="mt-4">Ihr Einkaufswagen</h2>
+
+        <!-- Show all Meals in Data-Table -->
+
+        <% if(req.session.basket && req.session.basket.length> 0){ %>
+          
+            <table class="table mt-4">
+                <th>Artikel</th>
+                <th>Einzelpreis / Artikel</th>
+                <th>Beschreibung</th>
+                <th>Preis</th>
+                <th>Anzahl</th>
+                <th>Aktion</th>
+
+
+                <% req.session.basket.forEach(function(meal,index){ %>
+                    <tr>
+                        <td>
+                            <%= meal.product.artikel %>
+                        </td>
+                        <td>
+                            <%= meal.product.preis %> €
+                        </td>
+                        <td>
+                            <%= meal.product.beschreibung %>
+                        </td>
+
+                        <td>
+                            <%= (meal.quantity * meal.product.preis).toFixed(2) %> €
+                        </td>
+                        <td>
+                            <!-- set meal Quantity -->
+                            <a href="/warenkorb/decrease-quantity/<%= meal.product.id %>"><button><i
+                                        class="bi bi-dash"></i></button></a>
+                            <%= meal.quantity %>
+                            <a href="/warenkorb/increase-quantity/<%= meal.product.id %>"><button><i
+                                        class="bi bi-plus"></i></button></a>
+                        </td>
+                        <td>
+                            <!-- Delete Artikel -->
+                            <a class="badge badge-danger" href="/shoppingbasket/remove/<%= meal.product.id %>">Artikel entfernen</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </table>
+
+            <hr>
+
+            <div class="mx-n5 px-5 py-4 mb-4" style="background-color: #f2f2f2;">
+                <div class="row">
+                    <div class="col-md-8 col-lg-9">
+                            <p>Gesamtpreis der Artikel:</p>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <p>
+                            <% let totalPrice=0; req.session.basket.forEach(function(meal){ totalPrice +=meal.quantity *
+                                meal.product.preis }); %>
+                                <% let lieferkosten=10; %> 
+                                 <%= totalPrice.toFixed(2) %> €
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-lg-9">
+                            <p>Lieferkosten von StudyLivery:</p>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <p>
+                            10.00 €
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-8 col-lg-9">
+                        <b>
+                            <p>Warenwert + Lieferkosten</p>
+                        </b>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <b><p>
+                            <%= (totalPrice+10).toFixed(2); %> €
+                        </p></b>
+                    </div>
+                </div>
+                <hr>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <a class="btn btn-dark" href="/artikelview">Zurück zur Einkaufsübersicht</a></li>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-dark" href="/warenkorb/ordershow">Kostenpflichtig Lebensmittel bestellen</a></li>
+                </div>
+            </div>
+            </div>
+            </div>
+
+                
+                    <% } else{ %>
+                        <p>Ihr Warenkorb ist leider leer. Fügen Sie die gewünschten Artikel hinzu.</p>
+                        <div class="mb-4 mt-4">
+                            <a class="btn btn-dark" href="/artikelview">Zur Artikelliste</a></li>
+                        </div>
+                        <% } %>
+    </div>

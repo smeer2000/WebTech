@@ -1,0 +1,40 @@
+<head>
+
+    <link rel="stylesheet" href="/styles/anmeldencheck.css">
+
+</head>
+
+
+<% if (success) { %>
+
+
+    <div class="container">
+
+        <div class="information">
+            <h1>Herzlich Willkommen bei StudyLivery!</h1>
+            Ihre Registrierung war erfolgreich.
+            <img src="/images/user.png">
+            </br>
+            Sie erhalten in kürze eine Bestätigung per E-Mail.
+
+        </div>
+
+    </div>
+
+    <% } else { %>
+
+        <div class="container">
+
+            <div class="information">
+                <h1>Registrierung fehlgeschlagen!</h1>
+
+                <img src="/images/cancel.png">
+
+
+                Bitte erneut versuchen.
+
+            </div>
+        </div>
+
+
+        <% } %>

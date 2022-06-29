@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h1>Artikel</h1>
+
+    Verwalten Sie die Artikel.
+
+    <% if(me) { %>
+
+
+        Eingeloggt
+
+        <% if(req.me.isSuperAdmin) { %>
+
+            SuperAdmin
+
+            <% } %>
+
+
+                <% } else { %>
+
+                    Besucher
+
+                    <% } %>
+
+                        <a class="nav-link" href="/artikelnew">Artikel anlegen</a>
+                        <a class="nav-link" href="/artikelview">Artikel anzeigen</a>
+
+</div>

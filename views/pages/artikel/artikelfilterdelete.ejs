@@ -1,0 +1,68 @@
+
+<div class="container mt-3">
+
+    <h1>Ergebnissuche</h1>
+    
+    Ihre Suche ist zu folgenden Ergebnissen gekommen.
+    
+    
+    <% if(meals.length == 0) { %>
+    
+           <h1>Ihre Suche hat leider kein Ergebnis gebracht.</h1>
+    
+           <a href="/artikeldelete" type="button" class="btn btn-dark">Zurück zum Menü "Artikel löschen"</a>
+        
+        
+
+           <% } else { %>
+    
+            <div class="container mt-3">
+    
+            <h1>Ihre Suche hat folgende Ergebnisse</h1>
+    
+            <table class="table table-bordered table-hover mt-4">
+    
+                <thead>
+                    <th>Name</th>
+                    <th>Beschreibung</th>
+                    <th>Preis</th>
+                    <th colspan="4">Markt</th>
+                    
+                </thead>
+                <tbody>
+    
+                    <% meals.forEach(function(meal){ %>
+                        <tr class="table">
+                            <td>
+                                <%= meal.artikel %>
+                            </td>
+                            <td>
+                                <%= meal.beschreibung %>
+                            </td>
+                            <td>
+                                <%= meal.preis %> €
+                            </td>
+                            <td>
+                                <%= meal.markt %>
+                                
+                            </td>
+                            <td>
+                           
+                                <a href="/artikelview/<%= meal.id %>/destroy" id="warenkorbbutton" class="btn btn-danger">Artikel löschen<i class="bi bi-trash"></i></a>
+                        </td>  
+                        </tr>
+                                                
+    
+                            <% }); %>
+                </tbody>
+            </table>
+    
+           
+        </div>
+        <a href="/artikeldelete" type="button" class="btn btn-dark">Zurück zum Menü "Artikel löschen"</a>
+        
+        
+        
+        <% } %>
+    
+    </div>

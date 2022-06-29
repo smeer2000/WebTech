@@ -1,0 +1,81 @@
+
+<div class="container mt-3">
+
+    <h1>Ergebnissuche</h1>
+    
+    Ihre Suche ist zu folgenden Ergebnissen gekommen.
+    
+    
+    <% if(meals.length == 0) { %>
+    
+           <h1>Ihre Suche hat leider kein Ergebnis gebracht.</h1>
+    
+           <a href="/artikelview" type="button" class="btn btn-dark">Zurück zur Bearbeitungsübersicht</a>
+         
+        
+    
+           <% } else { %>
+    
+            <div class="container mt-3">
+    
+            <h1>Ihre Suche hat folgende Ergebnisse</h1>
+    
+            <table class="table">
+    
+                <thead>
+                    <th>Name</th>
+                    <th>Beschreibung</th>
+                    <th>Preis</th>
+                    <th colspan="4">Markt</th>
+                    
+                </thead>
+                <tbody>
+    
+                    <% meals.forEach(function(meal){ %>
+                        <tr class="table">
+                            <td>
+                                <%= meal.artikel %>
+                            </td>
+                            <td>
+                                <%= meal.beschreibung %>
+                            </td>
+                            <td>
+                                <%= meal.preis %> €
+                            </td>
+                            <td>
+                                <%= meal.markt %>
+                                
+                            </td>
+                            <td>
+                             <% if (!req.session.basket) { %>
+                                        <a href="/warenkorb/<%= meal.id %>/put" class="btn btn-success warenkorb">Zu Warenkorb hinzufügen <i class="bi bi-basket2"></i></a>
+                                    <% } else { %>
+                                        <% let inShoppingCart = false; %>
+                                        <% for(let i = 0; i < req.session.basket.length; i++) { %> 
+                                            <% if (req.session.basket[i].product.id === meal.id) { %>
+                                                <div class="btn btn-primary warenkorb">Im Warenkorb enthalten <i class="bi bi-check"></i></div>
+                                                <% inShoppingCart = true; %>
+                                                <% break; %>
+                                            <% } %>
+                                        <% } %>
+                                        <% if (!inShoppingCart) { %>
+                                            <a href="/warenkorb/<%= meal.id %>/put" class="btn btn-success warenkorb">Zu Warenkorb hinzufügen <i class="bi bi-basket2"></i></a>
+                                        <% } %>
+                                    <% } %>    
+                        </td>  
+                        </tr>
+                                                
+    
+                            <% }); %>
+                </tbody>
+            </table>
+    
+           
+        </div>
+        <a href="/artikelview" type="button" class="btn btn-dark">Zurück zur Bearbeitungsübersicht</a>
+    
+        
+        
+        <% } %>
+    
+    </div>

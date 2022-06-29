@@ -1,0 +1,30 @@
+<% if (success) { %>
+
+    <div class="container">
+
+        <div class="information">
+            <h1>Artikel wurde erfolgreich angelegt!</h1>
+            <img src="/images/checked.png">
+
+        </div>
+
+
+    </div>
+
+    <% } else { %>
+
+        <div class="container">
+
+            <div class="information">
+                <h1>Artikel konnte nicht angelegt werden.</h1>
+
+                <img src="/images/cancel.png">
+
+                Bitte Daten prüfen.
+
+            </div>
+
+        </div>
+
+
+        <% } %>

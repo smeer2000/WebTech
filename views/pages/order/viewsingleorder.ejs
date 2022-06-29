@@ -1,0 +1,86 @@
+<%- exposeLocalsToBrowser() %>
+    <div class="container">
+
+       
+      
+
+        <div class="container">
+
+            <h1 class="mt-4">Einzelübersicht Bestellnr.: <%= values[0].bestellnummer %> </h1>
+            
+            <table class="table table-bordered table-hover mt-4">
+                <thead>
+                    <th>Auftraggeber</th>
+                    <th>Datum</th>
+                    <th>Bestellnummer</th>
+                    <th>Gesamtpreis+LK</th>
+                    <th>Status</th>
+                    
+                </thead>
+                <tbody>
+                    <h2>Bestellinformationen</h2>   
+                    <% values.forEach(function(value){ %>
+                    <tr class="table mb-4">
+                        <td>
+                            <%= value.kundenname %>
+                        </td>
+                        <td>
+                            <%= value.datum %>
+                        </td>
+                        <td>
+                            <%= value.bestellnummer %>
+                        </td>
+                        <td>
+                            <%= (value.gesamtpreis+10).toFixed(2) %> €
+                        </td>
+                        <td>
+                            <%= value.status %>
+                        </td>
+                        
+                        <% }); %>
+                    </tr>
+                </tbody>
+            </table>
+           
+            <table class="table table-bordered table-hover mt-4">
+                <thead>
+                    <th>Produkt</th>
+                    <th>Einzelpreis</th>
+                    <th>Anzahl</th>
+                    <th>Artikelpreis Gesamt</th>
+               
+                </thead>
+                <tbody>
+                    <h2>Produktüberischt</h2>   
+                    <% let backToJSON = JSON.parse(values[0].bestellungen); %>
+                    <% backToJSON.forEach(function(through){ %>
+
+                        
+                        <tr class="table mb-4">
+                            <td>
+                                <%= through.artikel %>
+                            </td>
+                            <td>
+                                <%= through.artikelpreis %>
+                            </td>
+                            <td>
+                                <%= through.quantity %>
+                            </td>
+                            <td>
+                                <%= through.artikelpreisgesamt %> €
+                            </td>
+                            
+                            
+                    <% }); %>     
+                    </tr>
+                   
+                </tbody>
+            </table>
+
+
+            <a href="/allOrders" class="btn btn-dark">Zurück zur Gesamtübersicht</a>
+          
+           
+           
+        </div>
+    </div>

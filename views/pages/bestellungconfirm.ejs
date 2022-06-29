@@ -1,0 +1,174 @@
+<div class="container mt-3">
+
+
+    <div class="col-lg-12 col-xl-12">
+        <h1>Ihre Bestellbestätigung</h1>
+
+        <div class="row mt-4">
+            <div class="col-4">
+                <p class="small text-muted mb-1">Datum der Bestellung:</p>
+                <p>
+                    <%= datum %>
+                </p>
+            </div>
+            <div class="col-4 mb-3 flex-end">
+                <p class="small text-muted mb-1">Ihre Bestellung wird unter folgender Nummer geführt:</p>
+                <p><%= bestellnummercreate %></p>
+            </div>
+            <div class="col-4 mb-3 flex-end">
+                <p class="small text-muted mb-1">Status Ihrer Bestellung:</p>
+                <p><%= statusbestellung %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 justify-content-end">
+                <p class="small text-muted mb-1">Auftraggeber: </p>
+                <p>
+                    <%= kundenname %>
+                </p>
+            </div>
+            <div class="col-4 mb-3 flex-end">
+                <p class="small text-muted mb-1">Lieferadresse: </p>
+                <p>
+                    <% if(strasse==="" ){ %>
+                        <%= "keine Adresse angegeben" %>
+                            <% } else { %>
+                                <%= strasse %>
+                                    <%= hausnummer %>, <%= plz %> <%= stadt %>
+                                            <% } %>
+                </p>
+            </div>
+        </div>
+
+        <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
+
+            <div class="row">
+                <div class="col-md-2 col-lg-2">
+                    <b>
+                        <p>Artikelname</p>
+                    </b>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <b>
+                        <p>Markt</p>
+                    </b>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <b>
+                        <p>Einzelpreis</p>
+                    </b>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <b>
+                        <p>Stückzahl</p>
+                    </b>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <b>
+                        <p>Gesamtpreis/Artikel</p>
+                    </b>
+                </div>
+            </div>
+
+            <% let bestätigung=JSON.parse(bestellung); %>
+                <% bestätigung.forEach(function(through){ %>
+
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2 col-lg-2">
+                            <p>
+                                <%= through.artikel %>
+                            </p>
+                        </div>
+                        <div class="col-md-2 col-lg-2">
+                            <p>
+                                <%= through.markt %> 
+                            </p>
+                        </div>
+                        <div class="col-md-2 col-lg-2">
+                            <p>
+                                <%= through.artikelpreis.toFixed(2); %> €
+                            </p>
+                        </div>
+                        <div class="col-md-2 col-lg-2">
+                            <p>
+                                <%= through.quantity %>
+                            </p>
+                        </div>
+                        <div class="col-md-2 col-lg-2">
+                            <p>
+                                <%= through.artikelpreisgesamt %> €
+                            </p>
+                        </div>
+                      
+                    </div>
+                    <% }); %>
+                    
+        </div>
+
+        <hr>
+        <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
+            <div class="row">
+                <div class="col-md-8 col-lg-9">
+                        <p>Gesamtpreis der Artikel:</p>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <p>
+                        <%= totalPrice.toFixed(2); %> €
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-lg-9">
+                        <p>Lieferkosten von StudyLivery:</p>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <p>
+                        <%= bestellkosten.toFixed(2); %> €
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8 col-lg-9">
+                    <b>
+                        <p>Gesamtpreis der Bestellung:</p>
+                    </b>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <b><p>
+                        <%= (totalPrice+bestellkosten).toFixed(2); %> €
+                    </p></b>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    
+                        <b><p>Bezahlung: <i class="bi bi-cash-coin"></i></b> <br/>
+                        Die Ware ist bei der Lebensmittelübergabe zu bezahlen. Sie können bei unseren Lieferanten in bar oder auch mit EC-Karte bezahlen.</p>
+                
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    
+                        <b><p>Bestellstatus: <i class="bi bi-hourglass-split"></i></b> <br/>
+                        Den Status Ihrer Bestellung können Sie unter "Meine Bestellungen" einsehen.</p>
+                
+                </div>
+                
+            </div>
+            <a href="/warenkorb/deletebasket" type="button" class="btn btn-dark mt-mb-2">Beenden</a>
+        </div>
+        <p class="mt-4 pt-2 mb-4">Sie haben Fragen oder benötigen Hilfe? <a href="#!">
+                Wir helfen gerne.</a></p>
+    
+    
+    
+               
+            </div>
+
+   
+
+</div>

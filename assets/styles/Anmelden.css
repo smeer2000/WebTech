@@ -1,0 +1,35 @@
+/* Anmelden ================================================================================================================================================== */
+ 
+.InfoText{
+
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.registrieren{
+
+    display: flex;
+    justify-content: center;
+}
+
+
+
+form .btn{
+
+    background-color: black;
+
+
+}
+
+a{
+
+    color: blue;
+    font-weight: bold;
+}
+
+a:hover{
+
+    
+    font-weight: bold;
+}
+

@@ -1,0 +1,144 @@
+
+
+
+<div class="container">
+
+<div><counter-for-artikel /> </div>
+Hallo
+
+  <div class="InfoText">
+    <h1>Registrieren</h1>
+    Bitte geben Sie ihre persönlichen Daten an.
+  </div>
+
+  <form class="row g-3" method="post" action="signup" id="formregistriereneins">
+  <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+  <div class="col-md-6">
+    <label for="anrede" class="form-label">Anrede</label>
+    <select id="anrede" class="form-select" name="anrede">
+      <option selected>Auswahl...</option>
+      <option>Herr</option>
+      <option>Frau</option>
+      <option>Divers</option>
+    </select>
+    <div class="msg" id="msgAnrede"></div>
+  </div>
+</br>
+  <div class="col-md-6">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name">
+    <div class="msg" id="msgName"></div>
+  </div>
+  <div class="col-md-6">
+    <label for="vorname" class="form-label">Vorname</label>
+    <input type="text" class="form-control" id="vorname" name="vorname">
+    <div class="msg" id="msgVorname"></div>
+  </div>
+  <div class="col-8">
+    <label for="strasse" class="form-label">Straße</label>
+    <input type="text" class="form-control" id="strasse" name="strasse">
+    <div class="msg" id="msgStrasse"></div>
+  </div>
+  <div class="col-2">
+    <label for="hausnummer" class="form-label">Hausnummer</label>
+    <input type="text" class="form-control" id="hausnummer" name="hausnummer">
+    <div class="msg" id="msgHausnummer"></div>
+  </div>
+  <div class="col-12">
+    <button type="submit" id="button" class="btn btn-primary">Bestätigen</button>
+  </div>
+  </form>
+  </div>
+
+
+  <!-- 
+  <form class="row g-3" method="post" action="" id="formregistriereneins">
+    <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+    <div class="col-md-6">
+      <label for="anrede" class="form-label">Anrede</label>
+      <select id="anrede" class="form-select" name="anrede">
+        <option selected>Auswahl...</option>
+        <option>Herr</option>
+        <option>Frau</option>
+        <option>Divers</option>
+      </select>
+      <div class="msg" id="msgAnrede"></div>
+    </div>
+  </br>
+    <div class="col-md-6">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name">
+      <div class="msg" id="msgName"></div>
+    </div>
+    <div class="col-md-6">
+      <label for="vorname" class="form-label">Vorname</label>
+      <input type="text" class="form-control" id="vorname" name="vorname">
+      <div class="msg" id="msgVorname"></div>
+    </div>
+    <div class="col-8">
+      <label for="strasse" class="form-label">Straße</label>
+      <input type="text" class="form-control" id="strasse" name="strasse">
+      <div class="msg" id="msgStrasse"></div>
+    </div>
+    <div class="col-2">
+      <label for="hausnummer" class="form-label">Hausnummer</label>
+      <input type="text" class="form-control" id="hausnummer" name="hausnummer">
+      <div class="msg" id="msgHausnummer"></div>
+    </div>
+    <div class="col-2">
+      <label for="zusatz" class="form-label">Zusatz</label>
+      <input type="text" class="form-control" id="zusatz" name="zusatz">
+      <div class="msg" id="msgZusatz"></div>
+    </div>
+    <div class="col-md-6">
+      <label for="stadt" class="form-label">Stadt</label>
+      <select class="form-select" id="stadt" name="stadt">
+        <option selected>Auswahl...</option>
+        <option>Konstanz</option>
+      </select>
+      <div class="msg" id="msgStadt"></div>
+    </div>
+    <div class="col-md-6">
+      <label for="plz" class="form-label">PLZ</label>
+      <select id="plz" class="form-select" name="plz">
+        <option selected>Auswahl...</option>
+        <option>78462</option>
+        <option>78464</option>
+        <option>78465</option>
+        <option>78467</option>
+      </select>
+      <div class="msg" id="msgPlz"></div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="passwort" class="form-label">Passwort</label>
+      <input type="password" class="form-control" name="passwort" id="passwort">
+      <div class="msg" id="msgPasswort"></div>
+    </div>
+    <div class="col-md-6">
+      <label for="passwortcheck" class="form-label">Passwort bestätigen</label>
+      <input type="password" class="form-control" id="passwortcheck" name="passwortcheck">
+      <div class="msg" id="msgPasswortCheck"></div>
+    </div>
+
+     -->
+  <!-- Set Back to Email 
+    <div class="col-md-6">
+      <label for="email" class="form-label">E-Mail</label>
+      <input type="text" class="form-control" name="email" id="email">
+      <div class="msg" id="msgEmail"></div>
+    </div>
+    <div class="col-md-6">
+      <label for="emailcheck" class="form-label">E-Mail bestätigen</label>
+      <input type="text" class="form-control" id="emailcheck" name="emailcheck">
+      <div class="msg" id="msgEmailCheck"></div>
+    </div>
+   
+    <div class="col-12">
+      <button type="submit" id="button" class="btn btn-primary">Bestätigen</button>
+    </div>
+  </form>
+
+
+</div>
+-->

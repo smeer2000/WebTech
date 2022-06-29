@@ -1,0 +1,53 @@
+<%- exposeLocalsToBrowser() %>
+    <div class="container">
+
+        <h1 class="mt-4">Anfragenverwaltung</h1>
+        Übersicht für alle Anfragen, die über das Kontaktformular vermittelt wurden.
+
+
+            <div class="container">
+
+                <table class="table table-bordered table-hover mt-4">
+                    <thead>
+                        <th>Name</th>
+                        <th>E-Mail</th>
+                        <th>Betreff</th>
+                        <th>Nachricht</th>
+                        <th>Markt</th>
+                        <th colspan="2">Aktion</th>
+
+
+                    </thead>
+                    <tbody>
+                        <% anfragen.forEach(function(anfrage){ %>
+                            <tr class="table">
+                                <td>
+                                    <%= anfrage.name %>
+                                </td>
+                                <td>
+                                    <%= anfrage.betreff %>
+                                </td>
+                                <td>
+                                    <%= anfrage.email %>
+                                </td>
+                                <td>
+                                    <%= anfrage.message %> 
+                                </td>
+                                <td text-align="center">
+                                    <%= anfrage.status %>
+
+                                </td>
+                                <td> <a href="/editAnfrage/<%= anfrage.id %>" class="btn btn-success">Anfrage bearbeiten</td>
+                                <td>
+                                
+                                    
+                                    <a href="/deleteAnfrage/<%= anfrage.id %>" class="btn btn-danger">Anfrage löschen</a>
+                                       
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            
+    </div>

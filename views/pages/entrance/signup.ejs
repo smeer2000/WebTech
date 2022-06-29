@@ -1,0 +1,137 @@
+
+<div id="signup" v-cloak>
+
+
+  <div class="container-fluid pt-5 pb-5" v-if="!cloudSuccess">
+    <h1 class="text-center">Account eröffnen</h1>
+    <div style="max-width: 800px;" class="mx-auto" >
+      <p class="text-center">Werden Sie ein Teil von StudyLivery um das volle Angebot unserer Dienstleistungen in Anspruch zunehmen.</p>
+      <hr/>
+      <ajax-form class="row g-3" action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-errors.sync="formErrors" :form-data="formData" :form-rules="formRules" @submitted="submittedForm()">
+        
+        <!-- Anrede funktioniert -->
+        <div class="col-md-6">
+        <div class="form-group">
+          <label for="anrede" class="form-label">Anrede</label>
+          <select id="anrede" class="form-select" name="anrede" v-model.trim="formData.anrede" :class="[formErrors.anrede ? 'is-invalid' : '']">
+            <option selected>Auswahl...</option>
+            <option>Herr</option>
+            <option>Frau</option>
+            <option>Divers</option>
+          </select>
+          <div class="invalid-feedback" v-if="formErrors.anrede">Bitte Anrede auswählen.</div>
+        </div>
+      </div>
+      
+        
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="full-name">Vorname & Nachname</label>
+          <input class="form-control" id="full-name" type="text"  :class="[formErrors.fullName ? 'is-invalid' : '']" v-model.trim="formData.fullName" placeholder="Max Mustermann" autocomplete="name" focus-first>
+          <div class="invalid-feedback" v-if="formErrors.fullName">Bitte Namen angeben.</div>
+        </div>
+        </div>
+        
+       
+        <div class="col-md-8">
+        <div class="form-group">
+          <label for="strasse" class="form-label">Straße</label>
+          <input type="text" class="form-control" id="strasse" name="strasse" v-model.trim="formData.strasse" v-model.trim="formData.strasse" :class="[formErrors.strasse ? 'is-invalid' : '']">
+          <div class="invalid-feedback" v-if="formErrors.strasse">Bitte Straße angeben.</div>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+            <label for="hausnummer" class="form-label">Hausnummer</label>
+            <input type="text" class="form-control" id="hausnummer" name="hausnummer" v-model.trim="formData.hausnummer" :class="[formErrors.hausnummer ? 'is-invalid' : '']">
+            <div class="invalid-feedback" v-if="formErrors.hausnummer">Bitte Hausnummer angeben.</div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="zusatz" class="form-label">Zusatz</label>
+            <input type="text" class="form-control" id="zusatz" name="zusatz" v-model.trim="formData.zusatz">
+          </div>
+          </div>
+
+          <div class="col-md-6">
+          <div class="form-group">
+            <label for="stadt" class="form-label">Stadt</label>
+            <select class="form-select" id="stadt" name="stadt" v-model.trim="formData.stadt" v-model.trim="formData.stadt" :class="[formErrors.stadt ? 'is-invalid' : '']">
+              <option selected>Auswahl...</option>
+              <option>Konstanz</option>
+            </select>
+            <div class="invalid-feedback" v-if="formErrors.stadt">Wir liefern nur in Konstanz aus..</div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="plz" class="form-label">PLZ</label>
+            <select id="plz" class="form-select" name="plz" v-model.trim="formData.plz" v-model.trim="formData.plz" :class="[formErrors.plz ? 'is-invalid' : '']">
+              <option selected>Auswahl...</option>
+              <option>78462</option>
+              <option>78464</option>
+              <option>78465</option>
+              <option>78467</option>
+            </select>
+            <div class="invalid-feedback" v-if="formErrors.plz">Bitte PLZ angeben.</div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group">
+            <!-- V-Model.trim to delete Whitespace from UserInput -->
+            <label for="email-address">E-Mail-Adresse</label>
+            <input class="form-control" id="email-address" type="email"  :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" placeholder="mustermann@example.com" autocomplete="email">
+            <div class="invalid-feedback" v-if="formErrors.emailAddress">Bitte gültige E-Mail-Adresse eingeben.</div>
+          </div>
+        </div>
+
+       
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="password">Passwort</label>
+            <input class="form-control" id="password" type="password"  :class="[formErrors.password ? 'is-invalid' : '']" v-model.trim="formData.password" placeholder="••••••••" autocomplete="new-password">
+            <div class="invalid-feedback" v-if="formErrors.password">Bitte Passwort angeben.</div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+        <div class="form-group">
+          <label for="confirm-password">Passwort bestätigen</label>
+          <input class="form-control" id="confirm-password" type="password"  :class="[formErrors.confirmPassword ? 'is-invalid' : '']" v-model.trim="formData.confirmPassword" placeholder="••••••••" autocomplete="new-password">
+          <div class="invalid-feedback" v-if="formErrors.confirmPassword">Passwörter stimmen nicht überein.</div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group form-check">
+          <input class="form-check-input" id="terms-agreement" type="checkbox" v-model="formData.agreed">
+          <label for="terms-agreement" class="form-check-label" :class="[formErrors.agreed ? 'text-danger' : '']">Ich habe die <a target="_blank" href="/agb"> AGB's</a>  &amp; <a target="_blank" href="/datenschutz"> Datenschutzbestimmungen</a>
+             gelesen und stimme diesen zu.</label>
+        </div>
+      </div>
+        <cloud-error v-if="cloudError==='emailAlreadyInUse'">Es sieht so aus, als ob es bereits einen Account mit dieser E-Mail-Adresse gibt. Passwort vergessen? Hier geht es zur Hilfe <a href="password/forgot">here</a>.</cloud-error>
+        <cloud-error v-else-if="cloudError"></cloud-error>
+        <div class="form-group">
+          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Account eröffnen</ajax-button>
+        </div>
+      </ajax-form>
+      <p class="text-center">Sie haben bereits einen Account? <a href="/login">Anmelden</a></p>
+    </div>
+  </div>
+  <div class="container-fluid pt-5 pb-5" v-if="cloudSuccess">
+    <h1 class="text-center">Checken Sie ihre E-Mails!</h1>
+    <div class="text-center">
+      <hr/>
+      <p>Ihr Account ist fast fertig. Bitte bestätigen Sie nur noch die E-Mail, welche wir an folgende Adresse gesendet haben : <strong>{{formData.emailAddress}}</strong>.</p>
+      <p>(You can still access your dashboard now, but some features will be unvavailable until we've verified your email address.)</p>
+      <p><a class="btn btn-outline-info" href="/">Go to dashboard</a></p>
+    </div>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

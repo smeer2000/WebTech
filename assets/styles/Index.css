@@ -1,0 +1,619 @@
+
+/*
+.col{
+
+    border: 3px solid red;
+}
+*/
+
+html{
+
+    height: 100%;
+}
+
+#ulnavbar a{
+
+    color: black;
+}
+
+
+
+.navbar-nav li a{
+
+    border-bottom: none;
+}
+
+header .btn {
+
+    background-color: #76EE00;
+    border: 2px solid white;
+    font-weight: bold;
+
+}
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border: none;
+  }
+
+
+
+
+.dropdown-menu .dropdown-item  {
+
+    color: black;
+    background-color: white;
+    border: none;
+}
+
+body{
+
+    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*background-color: #455A64;*/
+    font-family: 'Anek Malayalam', sans-serif;
+
+}
+
+#headlinenavbar{
+
+    color: white;
+    font-size: 22px;
+    margin-right: 50px;
+}
+
+#navbarimg{
+height: 50px;
+  margin-right: 10px;
+  margin-left: 30px;
+
+  
+}
+
+
+
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    font-size: 2rem;
+    background-color: #474B4F;
+  }
+
+.pictureclass{
+
+    width: 100%;
+    height: 60vh;
+}
+
+.container-fluid{
+
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+#slidercontainer{
+
+    margin-bottom: 40px;
+    
+}
+
+
+.Infobox{
+
+    height: 20vh;;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    box-shadow: 3px 5px 15px 5px #000000;
+
+}
+
+#cardslider{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    margin-top: 10vh;
+    border-radius: 20px;
+}
+
+.card .stars{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.card .stars img{
+
+    margin-top: 2vh;
+    height: 3vh;
+    width: 3vh;
+}
+
+.bewertung{
+
+    margin-top: 2vh;
+}
+
+.Name{
+
+    font-weight: bold;
+}
+
+#cardscontainer{
+
+    margin-top: 40px;
+
+}
+
+#cardscontainer h1{
+
+    margin-bottom: 20px;
+}
+
+#cardscontainer p{
+
+    margin-bottom: 3vh;
+}
+
+
+.card{
+
+    margin-right: 2%;
+    margin-bottom: 2vh;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    background-color: transparent;
+    color: black;
+    border-color: black 2px solid;
+
+}
+.card h5{
+
+    font-weight: bold;
+  
+}
+
+.card img{
+
+
+    margin-top: 10px;
+    height: 160px;
+    width: 100%;
+}
+
+.card .btn-primary{
+
+    background-color: black;
+    border-color: none;
+    border-radius: 15px;
+    width:80%;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+#studentcol{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#graduate{
+
+    height: 40vh;
+    width: 90%;
+    border-radius: 12px;
+}
+
+#bigfluid{
+
+    margin-top: 5vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
+}
+
+#bigfluidstudent{
+
+    margin-top: 50px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
+
+}
+
+#nachhaltigkeitcontainer{
+
+
+    margin-top: 5vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
+}
+
+#nachhaltigkeitcolone{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nachhaltigkeitcolone img{
+
+    height: 40vh;
+    width: 100%;
+    border-radius: 12px;
+}
+
+
+footer{
+
+    margin-top: auto;
+    width: 100%;
+  
+}
+
+/* Timeline */
+
+#containertimeline{
+
+    margin-top: 50px;
+}
+
+.timeline-steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.timeline-steps .timeline-step {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1rem
+}
+
+@media (min-width:768px) {
+    .timeline-steps .timeline-step:not(:last-child):after {
+        content: "";
+        display: block;
+        border-top: .25rem dotted red;
+        width: 3.46rem;
+        position: absolute;
+        left: 7.5rem;
+        top: .3125rem
+    }
+    .timeline-steps .timeline-step:not(:first-child):before {
+        content: "";
+        display: block;
+        border-top: .25rem dotted black;
+        width: 3.8125rem;
+        position: absolute;
+        right: 7.5rem;
+        top: .3125rem
+    }
+}
+
+.timeline-steps .timeline-content {
+    width: 10rem;
+    text-align: center
+}
+
+/* Big Circle */
+
+.timeline-steps .timeline-content .inner-circle {
+    border-radius: 1.5rem;
+    height: 1rem;
+    width: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.timeline-steps .timeline-content .inner-circle:before {
+    content: "";
+    background-color: black;
+    display: inline-block;
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+    border-radius: 6.25rem;
+    opacity: .8;
+    z-index: -1;
+
+}
+
+
+@media (max-width: 1399.98px) {
+
+    .pictureclass{
+
+        height: 500px;
+        width: 100%;
+    }
+
+
+
+    /*
+    body{
+
+        background-color: pink   
+}*/
+
+    .pictureclass{
+
+        height: 10vh;
+        width: 100%;
+    }
+
+
+}
+
+
+ /* lg */
+
+ @media (max-width: 1199.98px) {
+
+    /*
+    body{
+        background-color: rebeccapurple;   
+
+ }
+ */
+}
+
+
+ /* md */
+ @media (max-width: 991.98px) {
+
+    /*
+    body{
+        background-color: red;
+
+    }
+    */
+
+    #Headercolone{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    #Headercoltwo{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    #Headercolthree{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+
+    }
+ }
+
+
+
+/* bearbeitet sm */
+
+@media (max-width: 767.98px) {
+
+/*
+    body{
+            background-color: yellow;
+    }
+    */
+
+    #Headercolone{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    #Headercolthree{
+
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #Headercolthree .btn{
+        margin: 0px;
+    }
+
+    #Headercolthree ul{
+
+        margin: 0px;
+    }
+
+    #Headercolthree li{
+
+        margin: 0px;
+    }
+
+    #search{
+
+        visibility: hidden;
+    }
+
+    #Picturecontainer img{
+
+        height: 230px;
+    }
+
+    h1{
+
+        font-size: 25px;
+    }
+
+    #bigfluid{
+
+        margin-top: 10px;
+    }
+
+    #bigfluid h1{
+
+        margin-top: 15px;
+    }
+
+    #graduate{
+
+        height: 150px;
+        width: 150px;
+        margin-top: 10px;
+    }
+
+    #nachhaltigkeitcontainer img{
+
+        height: 150px;
+        width: 150px;
+
+    }
+
+    #nachhaltigkeitcontainer h1{
+
+        margin-top: 10px;
+
+    }
+
+    #slidercontainer{
+
+        margin-top: 10px;
+    }
+
+}
+
+
+
+ /* Mobile  bearbeitet xsmall*/
+
+ @media (max-width: 576.98px) {
+
+    /*
+    body{
+        background-color: green;
+
+    }
+    */
+
+    #Headercolone{
+
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    #Headercolthree{
+
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #Headercolthree .btn{
+        margin: 0px;
+    }
+
+    #Headercolthree ul{
+
+        margin: 0px;
+    }
+
+    #Headercolthree li{
+
+        margin: 0px;
+    }
+
+    #search{
+
+        visibility: hidden;
+    }
+
+    #Picturecontainer img{
+
+        height: 170px;
+    }
+
+    h1{
+
+        font-size: 25px;
+    }
+
+    #bigfluid{
+
+        margin-top: 10px;
+    }
+
+    #bigfluid h1{
+
+        margin-top: 15px;
+    }
+
+    #graduate{
+
+        height: 150px;
+        width: 150px;
+        margin-top: 10px;
+    }
+
+    #nachhaltigkeitcontainer img{
+
+        height: 150px;
+        width: 150px;
+
+    }
+
+
+    #nachhaltigkeitcontainer h1{
+
+        margin-top: 10px;
+
+    }
+
+    #slidercontainer{
+
+        margin-top: 10px;
+    }
+ }

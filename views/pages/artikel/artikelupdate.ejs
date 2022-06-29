@@ -1,0 +1,52 @@
+<head>
+  <link rel="stylesheet" href="/styles/Registrieren.css">
+  <script src="/assets/js/testing.js"></script>
+
+</head>
+
+<div class="container-fluid">
+
+  <div class="container">
+
+    <!-- Anmelden -->
+
+    <div class="InfoText">
+      <h1>Artikel bearbeiten</h1>
+      Bearbeiten Sie nun den Artikel.
+    </div>
+
+    <form class="row g-3" action="/artikelview/<%= meal.id %>/update" method="post" id="formregistriereneins">
+      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
+      <div class="col-md-6">
+        <label for="inputEmailname" class="form-label">Artikel</label>
+        <input type="text" class="form-control" name="artikel" id="inputartikel">
+      </div>
+      <div class="col-md-6">
+        <label for="inputname" class="form-label">Beschreibung</label>
+        <input type="text" class="form-control" id="inputbeschreibung" name="beschreibung">
+      </div>
+      <div class="col-6">
+        <label for="inputAddress" class="form-label">Preis</label>
+        <input type="text" class="form-control" id="inputpreis" name="preis">
+      </div>
+      <div class="col-md-6">
+        <label for="inputmarkt" class="form-label">Markt</label>
+        <select id="inputmarkt" class="form-select" name="markt">
+          <option selected>Auswahl...</option>
+          <option>Edeka</option>
+          <option>REWE</option>
+          <option>LIDL</option>
+          <option>Kaufland</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Überschreiben</button>
+      </div>
+    </form>
+
+  </div>
+
+
+</div>

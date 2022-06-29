@@ -1,0 +1,65 @@
+<%- exposeLocalsToBrowser() %>
+    <div class="container">
+
+        <h1 class="mt-4">Artikel löschen</h1>
+        Hier können die Artikel gelöscht werden.
+
+        <div class="row" id="searching">
+            <div class="col-12 mt-3">
+                <form class="d-flex align-items-center" action="/mealdelete">
+                    <div class="col-6 d-flex">
+                        <select name="filteroption" class="form-select" aria-label="Default select example">
+                            <option value="1">Artikelname</option>
+                            <option value="2">Beschreibung</option>
+                            <option value="3">Markt</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <input class="form-control" type="text" value="" length="20" name="q">
+                        <button class="btn-dark" type="submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <% if(me) { %>
+
+            <div class="container">
+
+                <table class="table table-bordered table-hover mt-4">
+                    <thead>
+                        <th>Name</th>
+                        <th>Beschreibung</th>
+                        <th>Preis</th>
+                        <th>Markt</th>
+                        <th>Aktion</th>
+
+                    </thead>
+                    <tbody>
+                        <% meals.forEach(function(meal){ %>
+                            <tr class="table">
+                                <td>
+                                    <%= meal.artikel %>
+                                </td>
+                                <td>
+                                    <%= meal.beschreibung %>
+                                </td>
+                                <td>
+                                    <%= meal.preis %> €
+                                </td>
+                                <td>
+                                    <%= meal.markt %>
+
+                                </td>
+                                <td>
+                                    <a href="/artikelview/<%= meal.id %>/destroy" id="warenkorbbutton"
+                                        class="btn btn-danger">Artikel löschen<i class="bi bi-trash"></i></a>
+
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+    </div>

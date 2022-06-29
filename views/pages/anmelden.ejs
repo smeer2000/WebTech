@@ -1,0 +1,43 @@
+<div class="container-fluid">
+
+  <div class="container">
+
+    <!-- Anmelden -->
+
+    <div class="InfoText">
+      <h1>Anmelden</h1>
+      Bitte geben Sie ihre persönlichen Daten an.
+    </div>
+
+
+    <form id="anmelden" name="anmelden" method="post">
+      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      <div class="mb-3">
+        <div class="form-group">
+          <label for="email" class="form-label">E-Mail
+            <i class="bi bi-envelope"></i>
+          </label>
+          <input type="email" name="email" class="form-control" id="email">
+          <div class="message" id="msgEmail"></div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="passwort" class="form-label">Passwort
+          <i class="bi bi-shield-lock"></i>
+        </label>
+        <input type="password" id="passwort" name="passwort" class="form-control">
+        <div class="message" id="msgPasswort"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Anmelden</button>
+      </br>
+
+      <div class="registrieren">
+        Kein Account ? Jetzt hier&nbsp;<a href="/registrieren">registrieren.</a>
+      </div>
+    </form>
+
+  </div>
+
+</div>

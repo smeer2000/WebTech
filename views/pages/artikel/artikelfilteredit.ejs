@@ -1,0 +1,69 @@
+
+<div class="container mt-3">
+
+    <h1>Ergebnissuche</h1>
+    
+    Ihre Suche ist zu folgenden Ergebnissen gekommen.
+    
+    
+    <% if(meals.length == 0) { %>
+    
+           <h1>Ihre Suche hat leider kein Ergebnis gebracht.</h1>
+    
+           <a href="/artikelview" type="button" class="btn btn-dark">Zurück zur Artikelübersicht</a>
+            <a href="/warenkorb" type="button" class="btn btn-dark">Warenkorb anzeigen</a>
+        
+    
+           <% } else { %>
+    
+            <div class="container mt-3">
+    
+            <h1>Ihre Suche hat folgende Ergebnisse</h1>
+    
+            <table class="table table-bordered table-hover mt-4">
+    
+                <thead>
+                    <th>Name</th>
+                    <th>Beschreibung</th>
+                    <th>Preis</th>
+                    <th colspan="4">Markt</th>
+                    
+                </thead>
+                <tbody>
+    
+                    <% meals.forEach(function(meal){ %>
+                        <tr class="table">
+                            <td>
+                                <%= meal.artikel %>
+                            </td>
+                            <td>
+                                <%= meal.beschreibung %>
+                            </td>
+                            <td>
+                                <%= meal.preis %> €
+                            </td>
+                            <td>
+                                <%= meal.markt %>
+                                
+                            </td>
+                            <td>
+                           
+                                <a href="/artikelview/<%= meal.id %>/update" id="warenkorbbutton" class="btn btn-info">Artikel bearbeiten<i class="bi bi-pencil"></i></a>
+                                         
+                        </td>  
+                        </tr>
+                                                
+    
+                            <% }); %>
+                </tbody>
+            </table>
+    
+           
+        </div>
+        <a href="/artikelview" type="button" class="btn btn-dark">Zurück zur Artikelübersicht</a>
+        <a href="/warenkorb" type="button" class="btn btn-dark">Warenkorb anzeigen</a>
+        
+        
+        <% } %>
+    
+    </div>

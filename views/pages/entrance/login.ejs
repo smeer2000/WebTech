@@ -1,0 +1,33 @@
+<div id="login" v-cloak>
+  <div class="container-fluid pt-5 pb-5">
+    <h1 class="text-center">Melden Sie sich bei StudyLivery an.</h1>
+    <div style="max-width: 450px;" class="mx-auto">
+      <hr/>
+      <ajax-form action="login" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+         <label for="email"><i class="bi bi-envelope"></i> E-Mail-Adresse: </label> 
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="E-Mail Adresse" :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" autocomplete="email" focus-first>
+          <div class="invalid-feedback" v-if="formErrors.emailAddress">E-Mail Adresse nicht korrekt.</div>
+        </div>
+        <label for="password"><i class="bi bi-key-fill"></i> Passwort</label> 
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Passwort" :class="[formErrors.password ? 'is-invalid' : '']" v-model.trim="formData.password" autocomplete="current-password">
+          <div class="invalid-feedback" v-if="formErrors.password">Bitte geben Sie ihr Passwort an.</div>
+        </div>
+        
+        <div class="form-group form-check">
+          <input class="form-check-input" type="checkbox" id="remember" name="rememberMe" v-model="formData.rememberMe"/>
+          <label class="form-check-label" for="remember">Remember me</label>
+        </div>
+        <cloud-error v-if="cloudError==='badCombo'">Die Eingaben stimmen nicht mit unseren Daten ein. Bitte prüfen Sie ihre Eingaben.</cloud-error>
+        <cloud-error v-else-if="cloudError"></cloud-error>
+        <div class="form-group">
+          <ajax-button :syncing="syncing" class="btn-dark btn-lg btn-block">Anmelden</ajax-button>
+        </div>
+      </ajax-form>
+      <p class="text-center"><a href="/password/forgot">Passwort vergessen?</a></p>
+      <p class="text-center"><a href="/signup">Kein Konto? Hier registrieren.</a></p>
+    </div>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
